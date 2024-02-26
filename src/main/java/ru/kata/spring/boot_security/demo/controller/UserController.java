@@ -16,7 +16,7 @@ public class UserController {
     public String showUserInfo(@CurrentSecurityContext(expression = "authentication.principal") User principal,
                                Model model) {
         model.addAttribute("user", principal);
-        boolean isAdmin = principal.getAuthorities().stream().anyMatch(s -> s.getAuthority().contains("ROLE_ADMIN"));
+        Boolean isAdmin = principal.getAuthorities().stream().anyMatch(s -> s.getAuthority().contains("ROLE_ADMIN"));
         model.addAttribute("isAdmin", isAdmin);
         return "user";
     }

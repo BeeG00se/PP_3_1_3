@@ -37,18 +37,18 @@ public class AdminController {
             return "create";
         } else {
             userService.addUser(user);
-            return "redirect:/";
+            return "redirect:/admin/";
         }
     }
 
     @PostMapping("/delete")
-    public String delete(@RequestParam int id) {
+    public String delete(@RequestParam Integer id) {
         userService.removeUser(id);
-        return "redirect:/";
+        return "redirect:/admin/";
     }
 
     @GetMapping("/edit")
-    public String updateUser(@RequestParam int id, Model model) {
+    public String updateUser(@RequestParam Integer id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
         return "edit";
     }
@@ -59,7 +59,7 @@ public class AdminController {
             return "edit";
         } else {
             userService.updateUser(user);
-            return "redirect:/";
+            return "redirect:/admin/";
         }
     }
 }

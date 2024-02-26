@@ -16,7 +16,7 @@ public class User implements UserDetails {
     @Id
     @Column(name = "userId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int userId;
+    private Integer userId;
 
     @NotEmpty(message = "Это поле должно быть запонено")
     @Size(min = 2, max = 100, message = "Имя должно быть от 2 до 100 символов длиной")
@@ -53,11 +53,11 @@ public class User implements UserDetails {
         this.surname = surname;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
