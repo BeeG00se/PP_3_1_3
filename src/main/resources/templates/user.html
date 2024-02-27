@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Spring Security Example</title>
@@ -7,6 +7,9 @@
 
 </head>
 <body>
+<form th:action="@{/logout}" method="post">
+    <button type="submit" class="btn btn-dark text-secondary">Logout</button>
+</form>
 <h1 class="display-2 text-center">Home Page</h1>
 <div class="d-grid gap-2 col-3 mx-auto">
 <a class="btn btn-primary" th:if="${isAdmin}" th:href="@{'/admin/'}">TABLE</a>
@@ -15,8 +18,6 @@
 <h2 class="text-center display-6" th:text="${user.name}"/>
 <h1 class="text-center display-4">My surname</h1>
 <h2 class="text-center display-6" th:text="${user.surname}"/>
-<h1 class="text-center display-4">My password</h1>
-<h2 class="text-center display-6" th:text="${user.password}"/>
 <h1 class="text-center display-4">Roles</h1>
 <ul th:each="role : ${user.authorities}">
     <li class="text-center" th:text="${role.authority}"></li>

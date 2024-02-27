@@ -33,6 +33,13 @@
                 <div th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">surname error</div>
             </td>
         </tr>
+        <tr>
+            <td class="mb-3">
+                <label for="password"><b>Password</b></label>
+                <input th:name="password" th:type="password" class="form-control"
+                       id="password"/>
+            </td>
+        </tr>
         <br>
         <tr>
             <td>

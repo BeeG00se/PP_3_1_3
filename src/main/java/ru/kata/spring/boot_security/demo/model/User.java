@@ -29,7 +29,7 @@ public class User implements UserDetails {
 
     @Column(name = "password")
     private String password;
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_role")
     private List<Role> role;
 
@@ -77,6 +77,13 @@ public class User implements UserDetails {
         this.surname = surname;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setRole(List<Role> role) {
+        this.role = role;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
